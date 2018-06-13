@@ -25,7 +25,7 @@ for i in range(largest_number):
 # input variables
 alpha = 0.1
 input_dim = 2
-hidden_dim = 16
+hidden_dim = 20
 output_dim = 1
 
 
@@ -39,7 +39,7 @@ synapse_1_update = np.zeros_like(synapse_1)
 synapse_h_update = np.zeros_like(synapse_h)
 
 # training logic
-for j in range(10000):
+for j in range(100000):
     
     # generate a simple addition problem (a + b = c)
     a_int = np.random.randint(largest_number/2) # int version
@@ -123,6 +123,8 @@ for j in range(10000):
         for index,x in enumerate(reversed(d)):
             out += x*pow(2,index)
         print(str(a_int) + " + " + str(b_int) + " = " + str(out))
+        ActualDifference = abs(c_int - out)
+        print("Difference from actual = " + str(ActualDifference))
         print("------------")
 
         
